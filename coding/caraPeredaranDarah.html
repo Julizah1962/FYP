@@ -4,135 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cara Peredaran Darah</title>
-	<script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
+    <script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
+
+    <!-- FIX: Import Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 
 <style>
-
-	  
+/* ===== GLOBAL ===== */
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            text-align: center; /* center all text */
-        }
-
-        /* Background blur */
-        body::before {
-            content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #e42f0f, #e42f0f);;
-    filter: blur(2px);
-    opacity: 0.6;
-    z-index: -1;
-        }
-
-
-.container {
-    padding: 20px;
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    overflow-x: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, #e42f0f, #e42f0f);
 }
 
-/* Back button */
-.back-arrow {
-    font-size: 50px;           
-    font-weight: bold;        
-    text-decoration: none;
-    color: black;
+/* Background blur */
+body::before {
+    content: "";
     position: absolute;
-    top: 10px;
-    left: 10px;
-    transition: transform 0.2s ease, color 0.2s ease;
+    inset: 0;
+    background: linear-gradient(135deg, #e42f0f, #d71d00);
+    filter: blur(3px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.container {
+    width: 95%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== BACK BUTTON FIX ===== */
+.back-arrow {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    text-shadow: 0px 0px 4px #003366;
+    transition: 0.2s ease;
 }
 
 .back-arrow:hover {
-    color: black;
     transform: scale(1.1);
 }
-/* Title */
+
+/* ===== TITLE ===== */
 h2 {
-    font-family: 'Fredoka One', cursive;
-            font-size: 30px;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin: 5px 0 20px 0;
-            text-shadow:
-                -2px -2px 0 #003366,
-                 2px -2px 0 #003366,
-                -2px  2px 0 #003366,
-                 2px  2px 0 #003366;
+    font-size: 32px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-shadow:
+        -2px -2px 0 #003366,
+         2px -2px 0 #003366,
+        -2px  2px 0 #003366,
+         2px  2px 0 #003366;
 }
 
-/* Grid layout */
+/* ===== IMAGE & BUTTON ===== */
 .organs-grid {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
 }
 
-/* Each organ box */
 .organ {
     text-align: center;
 }
 
-/* Frame for image */
 .image-box {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border: 2px solid black;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-/* Optional placeholder image */
 .image-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Clickable labels */
+/* Organ button */
 .organ-link {
     display: inline-block;
-	font-family: 'Fredoka One', cursive;
-    font-weight: bold;
-    font-size: 13px;
-    border: 1px solid black;
-    padding: 4px 8px;
+    font-size: 16px;
+    padding: 6px 12px;
+    border: 2px solid black;
     background: white;
     color: black;
+    border-radius: 6px;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .organ-link:hover {
     background: #b50400;
-    color: pink;
+    color: #ffdddd;
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    .image-box {
+        width: 150px;
+        height: 150px;
+    }
+
+    .organ-link {
+        font-size: 14px;
+    }
+}
 </style>
+
 <body>
     <div class="container">
+
         <!-- Back Button -->
-        <a href="index.html" class="back-arrow">&#11013;</a>
+        <a href="index.html" class="back-arrow">←</a>
 
-        <!-- Page Title -->
-        <h2>CARA <br>PEREDARAN DARAH</h2>
+        <!-- Title -->
+        <h2>CARA <br> PEREDARAN DARAH</h2>
 
-        <!-- Organ Grid -->
+        <!-- Content -->
         <div class="organs-grid">
             <div class="organ">
                 <div class="image-box">
@@ -141,6 +156,7 @@ h2 {
                 <a href="caraPeredaranDarahAR.html" class="organ-link">CLICK ME</a>
             </div>
         </div>
+
     </div>
 </body>
 </html>
