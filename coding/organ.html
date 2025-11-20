@@ -6,8 +6,9 @@
     <title>Organ-Organ yang Terlibat</title>
 
     <!-- GOOGLE FONT FIXED -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-
     <script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
 </head>
 
@@ -38,10 +39,13 @@
     }
 
     .container {
-        padding: 20px;
-        width: 100%;
-        max-width: 600px;
-    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
     .back-arrow {
         font-size: 45px;
@@ -79,6 +83,13 @@
 		justify-items: center;
 		margin-top: 40px;
 		padding-left: 40px;
+		display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    width: 100%;
+    max-width: 500px;
+    justify-items: center;
+    margin-top: 30px;
 	}
 
     .organ {
@@ -86,13 +97,13 @@
     }
 
     .image-box {
-        width: 70%;
-        aspect-ratio: 1 / 1;
-        border: 2px solid black;
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 8px;
+        width: 140px;
+    height: 140px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
+    margin-bottom: 8px;
     }
 
     .image-box img {
@@ -112,7 +123,7 @@
         color: black;
         text-decoration: none;
         transition: 0.25s ease;
-		margin-right: 60px;
+		margin-right: 20px;
     }
 
     .organ-link:hover {
@@ -129,7 +140,7 @@
     <div class="container">
 
         <h2>ORGAN-ORGAN YANG TERLIBAT</h2>
-
+		
         <div class="organs-grid">
             <div class="organ">
                 <div class="image-box">
@@ -159,7 +170,6 @@
                 <a href="salurandarah.html" class="organ-link">SALURAN DARAH</a>
             </div>
         </div>
-
     </div>
 
 </body>
