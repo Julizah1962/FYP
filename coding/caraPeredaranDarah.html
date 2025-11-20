@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Peredaran Darah</title>
+	<script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+	  
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        body::before {
+            content: "";
+			position: absolute;
+		top: 0;
+			left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #e42f0f, #e42f0f);;
+		filter: blur(2px);
+			opacity: 0.6;
+			z-index: -1;
+        }
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .back-arrow {
+        font-size: 45px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        transition: 0.2s ease;
+    }
+
+    .back-arrow:hover {
+        transform: scale(1.15);
+    }
+	
+h2 {
+    font-family: 'Fredoka One', cursive;
+        font-size: 30px;
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: -2px -2px 0 #003366,
+                     2px -2px 0 #003366,
+                    -2px 2px 0 #003366,
+                     2px 2px 0 #003366;
+        margin-top: 5px;
+        letter-spacing: 3px;
+}
+
+.organs-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.organ {
+    text-align: center;
+}
+
+.image-box {
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.organ-link {
+    display: inline-block;
+	font-family: 'Fredoka One', cursive;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid black;
+    padding: 10px 16px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.organ-link:hover {
+   background: #b50400;
+        color: #ffd8d8;
+        transform: scale(1.05);
+}
+
+</style>
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../index.html" class="back-arrow">&#11013;</a>
+
+        <!-- Page Title -->
+        <h2>CARA <br> PEREDARAN DARAH</h2>
+
+        <!-- Organ Grid -->
+        <div class="organs-grid">
+            <div class="organ">
+                <div class="image-box">
+                    <img src="../assets/textures/caraperedarandarah.png" alt="Jantung">
+                </div>
+                <a href="caraPeredaranDarahAR.html" class="organ-link">TEKAN SINI</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
