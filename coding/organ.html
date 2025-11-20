@@ -2,133 +2,134 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organ-Organ yang Terlibat</title>
-	
-	<script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
+
+    <!-- GOOGLE FONT FIXED -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+    <script src="/FYP/libs/mindar/mindar-image-three.prod.js"></script>
 </head>
 
 <style>
-		body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
 
-        /* ✅ background image + blur layer */
-        body::before {
-            content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #6ea8ff, #b497ff);
-    filter: blur(2px);
-    opacity: 0.6;
-    z-index: -1;
-        }
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #6ea8ff, #b497ff);
+        filter: blur(3px);
+        opacity: 0.55;
+        z-index: -1;
+    }
 
-.container {
-    padding: 20px;
-    position: relative;
-}
+    .container {
+        padding: 20px;
+        width: 100%;
+        max-width: 600px;
+    }
 
-/* Back button */
-.back-arrow {
-    font-size: 50px;           
-    font-weight: bold;        
-    text-decoration: none;
-    color: black;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
+    .back-arrow {
+        font-size: 45px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        transition: 0.2s ease;
+    }
 
-.back-arrow:hover {
-    color: black;
-    transform: scale(1.1);
-}
+    .back-arrow:hover {
+        transform: scale(1.15);
+    }
 
-h2 {
-	font-family: 'Fredoka One', cursive;
-    font-size: 24px;
-    color: #ffffff;
-    text-transform: uppercase;
-    margin: 5px 0;
-    text-shadow:
-        -2px -2px 0 #003366,
-        2px -2px 0 #003366,
-        -2px 2px 0 #003366,
-        2px 2px 0 #003366;
-}
+    h2 {
+        font-family: cursive;
+        font-size: 30px;
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: -2px -2px 0 #003366,
+                     2px -2px 0 #003366,
+                    -2px 2px 0 #003366,
+                     2px 2px 0 #003366;
+        margin-top: 5px;
+        letter-spacing: 3px;
+    }
 
-.organs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 140px);
-    grid-gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-}
+    .organs-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); 
+		gap: 25px;
+		justify-items: center;
+		margin-top: 40px;
+		padding-left: 40px;
+	}
 
-/* Each organ box */
-.organ {
-    text-align: center;
-}
+    .organ {
+        text-align: center;
+    }
 
-.image-box {
-    width: 140px;
-    height: 140px;
-    border: 2px solid black;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    margin-bottom: 8px;
-}
+    .image-box {
+        width: 70%;
+        aspect-ratio: 1 / 1;
+        border: 2px solid black;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
 
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.organ-link {
-    display: inline-block;
-	font-family: 'Fredoka One', cursive;
-    font-weight: bold;
-    font-size: 13px;
-    border: 1px solid black;
-    padding: 4px 8px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
+    .organ-link {
+        display: inline-block;
+        font-family: 'Fredoka One', cursive;
+        padding: 6px 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: 1px solid black;
+        background: white;
+        color: black;
+        text-decoration: none;
+        transition: 0.25s ease;
+		margin-right: 60px;
+    }
 
-.organ-link:hover {
-    background: #b50400;
-    color: pink;
-}
-
+    .organ-link:hover {
+        background: #b50400;
+        color: #ffd8d8;
+        transform: scale(1.05);
+    }
 </style>
+
 <body>
+
+    <a href="../index.html" class="back-arrow">&#11013;</a>
+
     <div class="container">
-        <!-- Back Button -->
-        <a href="index.html" class="back-arrow">&#11013;</a>
 
-        <!-- Page Title -->
-        <h2>ORGAN-ORGAN<br>YANG TERLIBAT</h2>
+        <h2>ORGAN-ORGAN YANG TERLIBAT</h2>
 
-        <!-- Organ Grid -->
         <div class="organs-grid">
             <div class="organ">
                 <div class="image-box">
@@ -158,6 +159,8 @@ h2 {
                 <a href="salurandarah.html" class="organ-link">SALURAN DARAH</a>
             </div>
         </div>
+
     </div>
+
 </body>
 </html>
