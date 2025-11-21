@@ -11,7 +11,7 @@
 
 <style>
 	body {
-            font-family: cursive;
+            font-family: 'Fredoka One', cursive;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -39,7 +39,12 @@
 	.container {
         padding: 20px;
         width: 100%;
-        max-width: 600px;
+        max-width: 600px;	
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		animation: slideDownFade 1.2s ease forwards;
     }
 
     .back-arrow {
@@ -83,21 +88,22 @@
         1px 1px 0 #003366;
 	}
 
-	.container {
+	.container1 {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		width: 330px;
+		width: 430px;
 		column-gap: 30px;
 	}
 
 	.column-title {
+		font-family: 'Fredoka One', cursive;
 		font-weight: bold;
 		margin-bottom: 10px;
 	}
 
 	.box {
-	    width: 90px;
-	    height: 90px;
+	    width: 120px;
+	    height: 120px;
 	    border: 2px solid black;
 	    margin-bottom: 20px;
 	    background: rgba(255,255,255,0.5);
@@ -191,6 +197,11 @@
     color: #003366;
     margin-top: 15px;
 }
+
+@keyframes slideDownFade {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 </style>
 </head>
 
@@ -198,11 +209,10 @@
 	<div class="container">
 		<a href="../index.html" class="back-arrow">&#11013;</a>
 
-		<div style="width: 330px;">
 			<h1>KUIZ</h1>
 			<h2>BAWA ORGAN KE FUNGSINYA YANG BETUL</h2>
 
-			<div class="container">
+			<div class="container1">
 			<div>
 				<p class="column-title">ORGAN</p>
 
