@@ -74,14 +74,15 @@ h2 {
 }
 
 .column-title {
+	font-family: 'Fredoka One', cursive;
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 16px;
 }
 
 .box, .boxText {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     margin-bottom: 20px;
     border-radius: 5px;
     display: flex;
@@ -100,7 +101,7 @@ h2 {
 }
 
 .boxText {
-    width: 180px;
+    width: 250px;
 }
 
 .text-input {
@@ -108,7 +109,11 @@ h2 {
     height: 100%;
     border: none;
     background: transparent;
+	font-family: 'Fredoka One', cursive;
     font-size: 12px;
+	margin-top: 80px;
+	margin-left: 10px;
+	margin-right: 10px;
     text-align: center;
     outline: none;
     resize: none;
@@ -175,8 +180,9 @@ h2 {
         <div>
             <p class="column-title">ORGAN</p>
             <div class="box"><img src="../assets/textures/paruparu.png" draggable="true" id="organ1"></div>
-            <div class="box"><img src="../assets/textures/jantung.png" draggable="true" id="organ2"></div>
+			<div class="box"><img src="../assets/textures/salurandarah.png" draggable="true" id="organ4"></div>
             <div class="box"><img src="../assets/textures/seldarahmerah.png" draggable="true" id="organ3"></div>
+			<div class="box"><img src="../assets/textures/jantung.png" draggable="true" id="organ2"></div>
         </div>
 
         <div>
@@ -184,6 +190,7 @@ h2 {
             <div class="boxText dropzone" data-answer="organ1"><textarea class="text-input" placeholder="Menghantar oksigen ke jantung"></textarea></div>
             <div class="boxText dropzone" data-answer="organ3"><textarea class="text-input" placeholder="Mengangkut darah ke seluruh badan dengan bantuan saluran darah"></textarea></div>
             <div class="boxText dropzone" data-answer="organ2"><textarea class="text-input" placeholder="Mengepam darah ke seluruh badan"></textarea></div>
+			<div class="boxText dropzone" data-answer="organ4"><textarea class="text-input" placeholder="Menjadi laluan untuk darah mengalir"></textarea></div>
         </div>
     </div>
 
@@ -254,7 +261,7 @@ document.getElementById("checkScoreBtn").addEventListener("click", () => {
     const total = dropzones.length;
     const scoreBox = document.getElementById("scoreBox");
     const scoreText = document.getElementById("scoreText");
-    scoreText.textContent = `Anda mendapat ${correctCount} daripada ${total} markah!`;
+    scoreText.textContent = `Tahniah! Anda mendapat ${correctCount} daripada ${total} markah!`;
     scoreBox.style.display = "block";
 });
 
