@@ -6,163 +6,131 @@
 <title>KUIZ ORGAN</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
 <style>
-	body {
-            font-family: 'Fredoka One', cursive;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+body {
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9aa5, #ffccd0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
 
-    body::before {
-        content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(135deg, #ff9aa5, #ffccd0);
-		filter: blur(2px);
-		opacity: 0.6;
-		z-index: -1;
-    }
-	
-	.container {
-        padding: 20px;
-        width: 100%;
-        max-width: 600px;	
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		animation: slideDownFade 1.2s ease forwards;
-    }
+.main-container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    text-align: center;
+}
 
-    .back-arrow {
-        font-size: 45px;
-        font-weight: bold;
-        text-decoration: none;
-        color: black;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        transition: 0.2s ease;
-    }
+.back-arrow {
+    font-size: 45px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: 0.2s ease;
+}
 
-    .back-arrow:hover {
-        transform: scale(1.15);
-    }
+.back-arrow:hover { transform: scale(1.15); }
 
-	h1 {
-		font-family: 'Fredoka One', cursive;
-        font-size: 30px;
-        color: #ffffff;
-        text-align: center;
-        text-transform: uppercase;
-        text-shadow: -2px -2px 0 #003366,
-                     2px -2px 0 #003366,
-                    -2px 2px 0 #003366,
-                     2px 2px 0 #003366;
-        margin-top: 5px;
-        letter-spacing: 3px;
-	}
+h1 {
+    font-size: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #003366, 2px -2px 0 #003366, -2px 2px 0 #003366, 2px 2px 0 #003366;
+    margin-top: 5px;
+    letter-spacing: 3px;
+}
 
-	h2 {
-		font-family: 'Fredoka One', cursive;
-		font-size: 14px;
-		color: #FFD700;
-		font-weight: bold;
-		text-shadow:
-        -1px -1px 0 #003366,
-        1px -1px 0 #003366,
-        -1px 1px 0 #003366,
-        1px 1px 0 #003366;
-	}
+h2 {
+    font-size: 14px;
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #003366, 1px -1px 0 #003366, -1px 1px 0 #003366, 1px 1px 0 #003366;
+    margin-bottom: 20px;
+}
 
-	.container1 {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		width: 430px;
-		column-gap: 30px;
-	}
+.quiz-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
-	.column-title {
-		font-family: 'Fredoka One', cursive;
-		font-weight: bold;
-		margin-bottom: 10px;
-	}
+.quiz-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-	.box {
-	    width: 120px;
-	    height: 120px;
-	    border: 2px solid black;
-	    margin-bottom: 20px;
-	    background: rgba(255,255,255,0.5);
-	    border-radius: 5px;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    position: relative;
-	}
+.column-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
 
-	.box img {
-	    width: 100%;
-	    height: 100%;
-	    object-fit: cover;
-		cursor: pointer;
-	}
-	
-	.boxText {
-	    width: 200px;
-	    height: 90px;
-	    border: 2px solid black;
-	    margin-bottom: 20px;
-	    background: rgba(255,255,255,0.5);
-	    border-radius: 5px;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    position: relative;
-	}
+.box, .boxText {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    background: rgba(255,255,255,0.5);
+    position: relative;
+}
 
-	.text-input {
-	    width: 300%;
-	    height: 80%;
-	    border: none;
-	    background: transparent;
-	    font-family: 'Fredoka One', cursive;
-	    font-size: 12px;
-	    text-align: center;
-	    outline: none;
-		object-fit: cover;
-	}
-	
-	.button {
-		margin-top: 0px;
-		padding: 10px 20px;
-		font-family: 'Fredoka One', cursive;
-		font-size: 14px;
-		background-color: #FFD700;
-		border-radius: 10px;
-		cursor: pointer;
-	}
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: grab;
+}
 
-    .button:hover {
-        transform: scale(1.1);
-		color: white;
-		
-    }
-	
-	#scoreBox {
+.boxText {
+    width: 180px;
+}
+
+.text-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    resize: none;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    background-color: #FFD700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    color: white;
+    transition: 0.2s;
+}
+
+#scoreBox {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -176,16 +144,13 @@
     z-index: 1000;
     text-align: center;
     font-family: 'Fredoka One', cursive;
-}
-
-#scoreContent {
-    position: relative;
+    display: none;
 }
 
 #closeScore {
     position: absolute;   
-    right: 3px; 
-	bottom: 50px;
+    top: 5px; 
+    right: 10px;
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
@@ -195,67 +160,39 @@
 #scoreText {
     font-size: 18px;
     color: #003366;
-    margin-top: 15px;
+    margin-top: 35px;
 }
-
-@keyframes slideDownFade {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
 </style>
 </head>
 
 <body>
-	<div class="container">
-		<a href="../index.html" class="back-arrow">&#11013;</a>
+<div class="main-container">
+    <a href="../index.html" class="back-arrow">&#11013;</a>
+    <h1>KUIZ</h1>
+    <h2>BAWA ORGAN KE FUNGSINYA YANG BETUL</h2>
 
-			<h1>KUIZ</h1>
-			<h2>BAWA ORGAN KE FUNGSINYA YANG BETUL</h2>
-
-			<div class="container1">
-			<div>
-				<p class="column-title">ORGAN</p>
-
-            <div class="box">
-                <img src="../assets/textures/paruparu.png" draggable="true" id="organ1">
-            </div>
-
-            <div class="box">
-                <img src="../assets/textures/jantung.png" draggable="true" id="organ2">
-            </div>
-
-            <div class="box">
-                <img src="../assets/textures/seldarahmerah.png" draggable="true" id="organ3">
-            </div>
+    <div class="quiz-grid">
+        <div>
+            <p class="column-title">ORGAN</p>
+            <div class="box"><img src="../assets/textures/paruparu.png" draggable="true" id="organ1"></div>
+            <div class="box"><img src="../assets/textures/jantung.png" draggable="true" id="organ2"></div>
+            <div class="box"><img src="../assets/textures/seldarahmerah.png" draggable="true" id="organ3"></div>
         </div>
 
         <div>
             <p class="column-title">FUNGSINYA</p>
-
-            <div class="boxText dropzone" data-answer="organ1">
-                <textarea class="text-input" placeholder="Menghantar oksigen ke jantung"></textarea>
-            </div>
-
-            <div class="boxText dropzone" data-answer="organ3">
-                <textarea class="text-input" placeholder="Mengangkut darah ke seluruh badan dengan bantuan saluran darah"></textarea>
-            </div>
-
-            <div class="boxText dropzone" data-answer="organ2">
-                <textarea class="text-input" placeholder="Mengepam darah ke seluruh badan"></textarea>
-            </div>
+            <div class="boxText dropzone" data-answer="organ1"><textarea class="text-input" placeholder="Menghantar oksigen ke jantung"></textarea></div>
+            <div class="boxText dropzone" data-answer="organ3"><textarea class="text-input" placeholder="Mengangkut darah ke seluruh badan dengan bantuan saluran darah"></textarea></div>
+            <div class="boxText dropzone" data-answer="organ2"><textarea class="text-input" placeholder="Mengepam darah ke seluruh badan"></textarea></div>
         </div>
-
     </div>
-	
-	<div class="button" id="checkScoreBtn">Semak Markah</div>
-	
-	<div id="scoreBox" style="display:none;">
-		<div id="scoreContent">
-			<span id="closeScore">&times;</span>
-				<p id="scoreText"></p>
-		</div>
-	</div>
-	</div>
+
+    <div class="button" id="checkScoreBtn">Semak Markah</div>
+
+    <div id="scoreBox">
+        <span id="closeScore">&times;</span>
+        <p id="scoreText"></p>
+    </div>
 </div>
 
 <script>
@@ -326,6 +263,5 @@ document.getElementById("closeScore").onclick = function() {
     document.getElementById("scoreBox").style.display = "none";
 };
 </script>
-
 </body>
 </html>
