@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUIZ ORGAN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9aa5, #ffccd0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    text-align: center;
+}
+
+.back-arrow {
+    font-size: 45px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: 0.2s ease;
+}
+
+.back-arrow:hover { transform: scale(1.15); }
+
+h1 {
+    font-size: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #003366, 2px -2px 0 #003366, -2px 2px 0 #003366, 2px 2px 0 #003366;
+    margin-top: 5px;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: 14px;
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #003366, 1px -1px 0 #003366, -1px 1px 0 #003366, 1px 1px 0 #003366;
+    margin-bottom: 20px;
+}
+
+.quiz-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.quiz-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.column-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.box, .boxText {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    background: rgba(255,255,255,0.5);
+    position: relative;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: grab;
+}
+
+.boxText {
+    width: 200px;
+}
+
+.text-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Fredoka One', cursive;
+    font-size: 12px;
+    margin-top: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    outline: none;
+    resize: none;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    background-color: #FFD700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    color: white;
+    transition: 0.2s;
+}
+
+#scoreBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+}
+
+#closeScore {
+    position: absolute;   
+    top: 5px; 
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: red;
+}
+
+#scoreText {
+    font-size: 18px;
+    color: #003366;
+    margin-top: 35px;
+}
+
+/* Music button */
+.music-btn {
+    position: fixed;
+	right: 40px;
+    top: 15px;
+    width: 55px;
+    height: 55px;
+    background: #FFD700;
+    border: 2px solid #003366;
+    border-radius: 50%;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 30;
+    transition: 0.25s;
+    color: #003366;
+}
+
+.music-btn.playing {
+    background: #b50400;
+    color: white;
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+	<button id="musicButton" class="music-btn">🎵</button>
+    <audio id="bgMusic" src="../assets/sounds/backgroundquiz.mp4"loop></audio>
+
+<!-- 🔊 SOUND EFFECTS -->
+<audio id="dropSound" src="../assets/sounds/quizdrop.mp4" preload="auto"></audio>
+<audio id="closeSound" src="../assets/sounds/buttonicon.mp4" preload="auto"></audio>
+
+<div class="main-container">
+    <a href="../index.html" class="back-arrow">&#11013;</a>
+    <h1>KUIZ</h1>
+    <h2>BAWA ORGAN KE FUNGSINYA YANG BETUL</h2>
+
+    <div class="quiz-grid">
+        <div>
+            <p class="column-title">ORGAN</p>
+            <div class="box"><img src="../assets/textures/paruparu.png" draggable="true" id="organ1"></div>
+            <div class="box"><img src="../assets/textures/salurandarah.png" draggable="true" id="organ4"></div>
+            <div class="box"><img src="../assets/textures/seldarahmerah.png" draggable="true" id="organ3"></div>
+            <div class="box"><img src="../assets/textures/jantung.png" draggable="true" id="organ2"></div>
+        </div>
+
+        <div>
+            <p class="column-title">FUNGSINYA</p>
+            <div class="boxText dropzone" data-answer="organ1"><textarea class="text-input" placeholder="Menghantar oksigen ke jantung"></textarea></div>
+            <div class="boxText dropzone" data-answer="organ3"><textarea class="text-input" placeholder="Mengangkut darah ke seluruh badan"></textarea></div>
+            <div class="boxText dropzone" data-answer="organ2"><textarea class="text-input" placeholder="Mengepam darah beroksigen ke seluruh badan"></textarea></div>
+            <div class="boxText dropzone" data-answer="organ4"><textarea class="text-input" placeholder="Menjadi laluan untuk darah mengalir"></textarea></div>
+        </div>
+    </div>
+
+    <div class="button" id="checkScoreBtn">Semak Markah</div>
+
+    <div id="scoreBox">
+        <span id="closeScore">&times;</span>
+        <p id="scoreText"></p>
+    </div>
+</div>
+
+<script>
+const draggables = document.querySelectorAll("img[draggable=true]");
+const dropzones = document.querySelectorAll(".dropzone");
+
+const dropSound = document.getElementById("dropSound");
+const scoreSound = document.getElementById("scoreSound");
+const closeSound = document.getElementById("closeSound");
+
+draggables.forEach(img => {
+    img.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", e.target.id);
+    });
+});
+
+dropzones.forEach(zone => {
+    zone.addEventListener("dragover", e => {
+        e.preventDefault();
+        zone.style.borderColor = "#0000FF"; 
+    });
+
+    zone.addEventListener("dragleave", e => {
+        zone.style.borderColor = "black"; 
+    });
+
+    zone.addEventListener("drop", e => {
+        e.preventDefault();
+        zone.style.borderColor = "black";
+
+        dropSound.pause();
+        dropSound.currentTime = 0;
+        dropSound.play();
+
+        const draggedId = e.dataTransfer.getData("text/plain");
+        const draggedElem = document.getElementById(draggedId);
+
+        const existingImg = zone.querySelector("img");
+        if (existingImg) existingImg.remove();
+
+        const clone = draggedElem.cloneNode(true);
+        clone.style.width = "100%";
+        clone.style.height = "100%";
+        clone.style.objectFit = "cover";
+        clone.setAttribute("draggable", "false");
+        zone.appendChild(clone);
+
+        if (zone.dataset.answer === draggedId) {
+            zone.classList.add("correct");
+            zone.classList.remove("wrong");
+        } else {
+            zone.classList.add("wrong");
+            zone.classList.remove("correct");
+        }
+    });
+});
+
+document.getElementById("checkScoreBtn").addEventListener("click", () => {
+    new Audio("../assets/sounds/quizmark.mp4").play();
+
+    let correctCount = 0;
+    dropzones.forEach(zone => {
+        if (zone.classList.contains("correct")) {
+            correctCount++;
+        }
+    });
+
+    const total = dropzones.length;
+    document.getElementById("scoreText").textContent =
+        `Tahniah! Anda mendapat ${correctCount} daripada ${total} markah!`;
+    document.getElementById("scoreBox").style.display = "block";
+});
+
+// Close button sound
+document.getElementById("closeScore").onclick = function() {
+    closeSound.pause();
+    closeSound.currentTime = 0;
+    closeSound.play();
+    document.getElementById("scoreBox").style.display = "none";
+};
+
+const musicBtn = document.getElementById("musicButton");
+		const bgMusic = document.getElementById("bgMusic");
+		bgMusic.volume = 0.03;
+		let isPlaying = false;
+
+		/* ▶️ AUTO PLAY WHEN PAGE LOADS (after navigation click) */
+window.addEventListener("load", () => {
+    bgMusic.play().then(() => {
+        isPlaying = true;
+        musicBtn.classList.add("playing");
+    }).catch(err => {
+        console.log("Autoplay blocked:", err);
+    });
+});
+
+/* 🎵 BUTTON TOGGLE */
+musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        bgMusic.pause();
+        musicBtn.classList.remove("playing");
+    } else {
+        bgMusic.play();
+        musicBtn.classList.add("playing");
+    }
+    isPlaying = !isPlaying;
+});
+</script>
+</body>
+</html>
